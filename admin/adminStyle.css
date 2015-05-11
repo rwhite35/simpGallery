@@ -1,0 +1,121 @@
+/**
+* 
+* Admin style for gallery UI
+* @version 2.1, 2014-08-17
+* @since 1.0, 2012-2013
+*
+* sec 1 general block level and interface styles
+* sec 2 list view specific
+* sec 3 form style specific
+*
+* CLIENT COLOR PALLETE
+* @color #014436, dark green: id lightbox and class formhead
+* @color #578527, lite green: id headerbox
+*/
+/* Admin UI parent */
+*{ margin:0 }
+body { color:#333;overflow-x:hidden;font-size:1em;font-family:Arial,Helvetica,"Helvetic Neue",sans-serif }
+html { overflow-y:scroll }
+#wrapper {position:relative;width:95%;height:90%;margin-top:0.5in;overflow-y:scroll;border-top:1pt solid #a1a1a1}
+.buttontxt {font-size:14pt;color:#014436}
+/* --
+* List View Style Rules
+* list_viewer, list_class
+-- */
+#mediaNav {display:table;margin-left:0.75in}
+#row {display:table-row}
+#left, #right {display: table-cell;padding:20px;text-align:center}
+#definitions {list-style:none}
+#catlist {width:90%;border:1pt solid #a1a1a1; border-right:3pt solid #a1a1a1}
+#galleries {width:620px;height:415px;overflow-y:auto;padding-right: 4px;border: 0pt solid #c06a28}
+/* admin navigation buttons */
+#navbtn {display:inline-block;width:112px;height:30px;padding-top:28px;text-align:center}
+span.navbtntxt {width:112px;font-size:0.90em;font-family:Arial, Helvetica, sans-serif;font-weight:900;color:#014436}
+div.addgal {
+    background-image:url('../img/addbtn.png');
+	background-repeat:no-repeat;
+	background-position-y:5px;
+}
+div.viewlist {
+    background-image:url('../img/viewbtn.png');
+	background-repeat:no-repeat;
+	background-position-y:5px;
+}
+div.gohome {
+    background-image:url('../img/homebtn.png');
+	background-repeat:no-repeat;
+	background-position-y:5px;
+}
+/* list_viewer, list class table style */
+.zebra {background-color: #aafffb}
+table.glist {display:table;width:100%;border-collapse:collapse}
+table.glist tr.header {background-color:#a1a1a1;text-align:center;height:20px}
+table.glist th {font-size:0.90em;font-family:Arial, Helvetica, sans-serif;color:#000000}
+table.glist td {display:table-cell;height:30px;font-size:0.90em;font-family: Arial, Helvetica, sans-serif;color:#014436}
+/* --
+* 
+* FORM VIEW ADMIN
+--*/
+/* changeform, changeform_class */
+#fwrapper {position:absolute;width:90%;height:95%;border:0pt solid red}
+#fheader {width:98%;height:40px;background-color:#dcdcdc;border:1pt solid #000;padding-left:8px;padding-bottom:5px;text-align:center;vertical-align:middle}
+#fform {width:100%;height:85%;border-left: 1pt solid #a1a1a1;padding-top:15px;padding-left:5px;overflow-y:auto;font-family:Arial, Helvetica, sans-serif;}
+#fmes {width:98%;padding-left:10px}
+/* changeform table style */
+#galleryForm {} /* assigned to all form tags, used by val_form.js */
+table.galleryCell td {height:30px} /* assigned to all mediaForm cells */
+table.galleryTable {display:table;width:98%;height:80%;border-collapse:collapse;font-size:1.2em}
+th.galleryHead {padding:3px;font-size:0.90em;font-family:Arial, Helvetica, sans-serif;color:#000000;background-color:#a1a1a1}
+/*
+* TEXT DEFINITIONS
+* list_view, changeform, addform
+* all button styles moved to style.css
+*/
+a.btnclose:link {text-decoration:none;color:#014436}
+a.btnclose:hover {color:#fff}
+a.btnclose:visited {text-decoration:none;color:#014436}
+span.listviewdesc {font-size:0.65em; color:#a1a1a1}
+/* ----
+* BUTTONS BRICKS AND NAV
+*/
+/* portfolio/index.php backbtn */
+#backbtn { display:inline;float:right }
+.button {
+ width: 110px;
+ height: 35px;
+ padding: 3px 5px;
+ /* -- background attributes -- */
+ background: rgba(235,225,225,0.85); /* for IE 6-9 */
+ /* filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#dbcccc',EndColorStr='#f6ebeb');*/
+ /* for IE 10+ */
+ background: -ms-linear-gradient(#dbcccc 0%, #eae0e0 50%, #f6eded 60%, #f6ebeb 100%); 
+ /* for mozilla */
+ background: -moz-linear-gradient(#dbcccc 0%, #eae0e0 50%, #f6eded 60%, #f6ebeb 100%);
+ /* safari & opera */
+ background: -webkit-linear-gradient(#dbcccc 0%, #eae0e0 50%, #f6eded 60%, #f6ebeb 100%);
+ background-image: -webkit-gradient(
+		linear, 
+		left bottom, 
+		left top, 
+		color-stop(0.07,rgb(220,200,200)),
+		color-stop(0.54,#eae0e0),
+		color-stop(0.77,#eae0e0)
+		);
+ /* opera */
+ background: -o-linear-gradient(#dbcccc 0%, #eae0e0 50%, #f6eded 60%, #f6ebeb 100%);
+ /* wc3 */
+ background: linear-gradient(#dbcccc 0%, #eae0e0 50%, #f6eded 60%, #f6ebeb 100%);
+ /* box-shadow:2px 2px 2px 2px #cfcfcf; */
+ /* -- border attributes -- */
+ border-radius: 5px;
+ -moz-border-radius: 5px;
+ border-top: 2px solid #c1c1c1;
+ border-left: 2px solid #c1c1c1;
+ border-bottom: 2px solid #717171;
+ border-right: 2px solid #717171;
+ }
+.button:link { color:#333333 }
+.button:hover { color:#a1a1a1 }
+.button:visited { color:#333333 }
+/* button text sytles required for gallery admin viewers */
+.buttontxt { font-size:0.95em;text-decoration:none }

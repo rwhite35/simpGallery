@@ -1,0 +1,224 @@
+/**
+* GALLERY UI STYLES
+* consolidated style sheet for public/tablet/admin pages
+* @version 2.5, 2015-05-26
+* @since 1.0, 2014-2015
+*
+*
+* ###### PUBLIC STYLE SHEET ORGANIZATED ######
+* sec 1: Text Elements
+* sec 2: Block Level Elements
+* sec 3: Project Image Presentation (slide show)
+*/
+/* ---- 
+* SEC 1:  TEXT ELEMENT STYLES 
+* keep all text elements styles in this section
+---- */
+*{ margin:0 }
+html { overflow-y:auto }
+body { color:#333;overflow-x:hidden;font-size:1em;font-family:Arial,Helvetica,"Helvetic Neue",sans-serif }
+h2.boxlabel { font-size:15px;line-height:17px;vertical-align:middle;color:#333333 }
+h2.gallerysubhead { display:inline;float:left;font-size:1.12em;font-weight:900;line-height:1.65em;color:#333333 }
+span.gtitle { font-family:Arial, Helvetica, Sans-Serif;font-size:0.90em }
+/* for list_view, changeform, addform, all other button/bricks moved to style */
+a.btnclose:link { text-decoration:none;color:#014436 }
+a.btnclose:hover { color:#fff }
+a.btnclose:visited { text-decoration:none;color:#014436 }
+span.listviewdesc { font-size:0.65em; color:#a1a1a1 }
+/* ---- 
+* SEC 2:  BLOCK LEVEL STYLES 
+* index, index_admin
+---- */
+#header { position:relative;display:block;width:100%;height:140px;background-color:#333333;z-index:1 }
+#lightbox { width:99%;margin-top:6px;margin-left:10px;padding-top:5px;background-color:#fff;border:0px solid #333333 }
+#livearea { width:97%;height:535px;padding:10px;border:0px solid #333333;background-color:#fff;overflow-y:auto }
+#gframe { height:215px;float:left;border:0pt solid #a1a1a1;text-align:center;margin-right:6px }
+#gthumbs { height: 175px;overflow:hidden;border:0pt solid #a1a1a1;padding:10px 10px 0px 10px }
+#thumbimg { width:250px }
+/* defines iframe position relative to chrome, index.html L111, index_admin L93 */
+.gallerymargin { margin-left:18%;margin-top:15px;height:95% }
+/* error reporting */ 
+div.galerror {
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	width: 92%;
+	border: 1pt solid;
+	background-color: #fff;
+	box-shadow: 6px 6px 5px #a1a1a1;
+	-moz-box-shadow:6px 6px 5px #a1a1a1;
+	-webkit-box-shadow:6px 6px 5px #a1a1a1;
+	z-index: 100;
+}
+#row { display: block;width:100%;height:768px;background-color:#333333 }
+#left {
+ position: relative;
+ display: inline-block;
+ top:0px;
+ height:590px;
+ width:68%;
+ padding:8px;
+ overflow-y:auto;
+ background-color: #fff;
+ z-index:4;
+}
+#right {
+ position: relative;
+ top:0px;
+ height:90%;
+ width:28%;
+ float:right;
+ padding:8px;
+ text-align: center;
+ vertical-align: text-top;
+ z-index: 5;
+ }
+img#clogo { width:100px }
+#footer {
+	position: fixed;
+	display: inline-table;
+	bottom:0%;
+	clear:both;
+	width:100%;
+	height:25px;
+	padding-left:2.30em;
+	background-color:#969696;
+	border:0pt solid #969696;
+	/* all children inherit font style */
+	font-family: helvetica, sans-serif;
+	font-size:0.95em;
+	letter-spacing: 0.12em;
+	z-index:100;
+}
+/* ---
+* SEC 3:  PROJECT IMAGES PRESENTATION
+* @image orientation landscape
+* @image width variable, but standardized(95% of pxs_container) through projectGaller class
+* @image height automatically based on width
+--- */
+/* preswrapper holds all presentation elements, image, nav, label, grey background */
+.preswrapper { width:755px;height:560px;margin-top:6px;margin-left:6%;padding-top:5px;overflow:hidden }
+/* project menu bar over image, holds project gallery header and back button */
+#gallerymenubar { width:95%;padding-top:5px;height:30px }
+/* project live area, hold image presentation */
+.pxs_container { height:560px; overflow:hidden }
+/*
+* image and image name label, ul width is calculated by adding together all images plus padding
+* height is hard coded to provide a 'live' area by hiding any overflow
+*/
+.pxs_container ul { height:520px;display:block;overflow:hidden;padding-left:8px;padding-top:8px;list-style:none;text-align:center;clear:none }
+ul.pxs_slider { position:absolute;left:0px;top:0px }
+ul.pxs_slider li { float:left }
+ul.pxs_slider li img { display:block }
+.pxs_loading {
+	position:absolute;
+	top:25%;
+	left:25%;
+	width:180px;
+	margin-left:-90px;
+	color:#fff;
+	font-size:20px;
+	padding:15px 15px 15px 50px;
+	position:absolute;
+	background:#333 url('../images/ajax-loader.gif') no-repeat 10px 50%;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	border-radius:15px;
+	opacity:0.7;
+}
+/* CLOSE PUBLIC */
+/**
+* 
+* ###### ADMIN STYLE SHEET ORGANIZED ######
+* consolidated adminStyle and galleryStyle
+* @version 2.5, 2015-05-26
+* @since 1.0, 2014-2015
+*
+* sec 1 admin block level and interface styles
+* sec 2 list view specific
+* sec 3 form style specific
+*/
+/* --- 
+* SEC 1:  ADMIN BLOCK LEVEL 
+* index_admin, dashboard, list_viewer
+--- */
+#wrapper { position:relative;width:100%;height:90%;margin-top:0.5in;border-top:0pt solid #a1a1a1 }
+#login { position:absolute;top:530px;left:20px;background-color:#fff;border:1pt solid #656565;opacity:0.75;z-index:200 }
+.preview { width:100%;height:560px }
+/* ---- 
+* SEC 2:  LIST VIEWER STYLES
+* list_viewer, list_class
+---- */
+#mediaNav { display:table;margin-left:0.75in; border:0pt solid red }
+#dash_row { display:table-row }
+#dash_left, #dash_right { display: table-cell;padding:20px;text-align:center }
+#definitions { list-style:none }
+#catlist { width:98%; border:1pt solid #a1a1a1; border-right:3pt solid #a1a1a1 }
+/* admin navigation buttons */
+#navbtn { display:inline-block;margin-top:5px;width:112px;height:25px;padding-top:8px;text-align:center }
+span.navbtntxt { width:112px;font-size:0.90em;font-family:Arial, Helvetica, sans-serif;font-weight:900;color:#014436 }
+/* list_viewer, list class table style */
+.zebra { background-color: #aafffb }
+table.glist { display:table; width:100%; border-collapse:collapse }
+table.glist tr.header { background-color:#a1a1a1;text-align:center;height:20px }
+table.glist th { font-size:0.90em;font-family:Arial, Helvetica, sans-serif;color:#000000 }
+table.glist td { display:table-cell;height:30px;font-size:0.90em;font-family: Arial, Helvetica, sans-serif;color:#014436 }
+/* ----
+* SEC 3:  FORM VIEW ADMIN
+* changeform class
+---- */
+#fwrapper { position:absolute;width:90%;height:95%;border:0pt solid red }
+#fheader { width:98%;height:40px;background-color:#dcdcdc;border:1pt solid #000;padding-left:8px;padding-bottom:5px;text-align:center;vertical-align:middle }
+#fform { width:100%;height:85%;border-left: 1pt solid #a1a1a1;padding-top:15px;padding-left:5px;overflow-y:auto;font-family:Arial, Helvetica, sans-serif }
+#fmes { width:98%;padding-left:10px }
+/* changeform table style */
+#galleryForm {} /* assigned to all form tags, used by val_form.js */
+table.galleryCell td { height:30px } /* assigned to all mediaForm cells */
+table.galleryTable { display:table;width:98%;height:80%;border-collapse:collapse;font-size:1.2em }
+th.galleryHead { padding:3px;font-size:0.90em;font-family:Arial, Helvetica, sans-serif;color:#000000;background-color:#a1a1a1 }
+/* ----
+* SEC 4: BUTTONS AND BRICKS STYLE
+*
+----*/
+/* portfolio/index.php backbtn */
+#backbtn { display:inline;float:right }
+.button {
+ width: 110px;
+ height: 35px;
+ padding: 3px 5px;
+ /* -- background attributes -- */
+ background: rgba(235,225,225,0.85); /* for IE 6-9 */
+ /* filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#dbcccc',EndColorStr='#f6ebeb');*/
+ /* for IE 10+ */
+ background: -ms-linear-gradient(#dbcccc 0%, #eae0e0 50%, #f6eded 60%, #f6ebeb 100%); 
+ /* for mozilla */
+ background: -moz-linear-gradient(#dbcccc 0%, #eae0e0 50%, #f6eded 60%, #f6ebeb 100%);
+ /* safari & opera */
+ background: -webkit-linear-gradient(#dbcccc 0%, #eae0e0 50%, #f6eded 60%, #f6ebeb 100%);
+ background-image: -webkit-gradient(
+		linear, 
+		left bottom, 
+		left top, 
+		color-stop(0.07,rgb(220,200,200)),
+		color-stop(0.54,#eae0e0),
+		color-stop(0.77,#eae0e0)
+		);
+ /* opera */
+ background: -o-linear-gradient(#dbcccc 0%, #eae0e0 50%, #f6eded 60%, #f6ebeb 100%);
+ /* wc3 */
+ background: linear-gradient(#dbcccc 0%, #eae0e0 50%, #f6eded 60%, #f6ebeb 100%);
+ /* box-shadow:2px 2px 2px 2px #cfcfcf; */
+ /* -- border attributes -- */
+ border-radius: 5px;
+ -moz-border-radius: 5px;
+ border-top: 2px solid #c1c1c1;
+ border-left: 2px solid #c1c1c1;
+ border-bottom: 2px solid #717171;
+ border-right: 2px solid #717171;
+ }
+.button:link { color:#333333 }
+.button:hover { color:#a1a1a1 }
+.button:visited { color:#333333 }
+/* button text sytles required for gallery admin viewers */
+.buttontxt { font-size:0.95em;text-decoration:none }
+/* CLOSE ADMIN */

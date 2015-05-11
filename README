@@ -1,0 +1,74 @@
+$ID: README 2015-05-26 rwhite@october-design.com $
+#################################################
+Simple Portfolio/Gallery Project
+#################################################
+INTSTALLATION INSTRUCTIONS
+#################################################
+
+This project is self contained. Source files should be copied to your websites root 
+directory in a parent directory.  The drectory name is 'gallery' but that can be variable.  
+
+The program allows web users to view active galleries of images through a lightbox.
+And allows authorized user to manage galleries of images files. See source file 
+DocBlock comments, program logic and usage.  
+
+The project requires PHP 5.4 and newer with GDLib 2 and PDO driver enabled (usually
+the default distro). MySQL 5 and newer, JavaScript 2 and JQuery 1.10. 
+
+PRODUCTION SETTINGS:
+The parent and sub directories need to be owned by httpds user. Change ownership 
+with something like:
+  
+  user$ sudo chown -R apache:apache gallery/
+
+MAX FILE UPLOAD:
+PHP.INI post_max_size and upload_max_filesize directives restrict the file size web
+users can post. You may want to change the default set in PHP.INI.  Always restart
+Apache after making any change to php.ini. To see your current setting:
+
+  user$ grep -in 'post_max_size' /etc/php.ini   8M
+  user$ grep -in 'upload_max_filesize' /etc/php.ini  2M 
+
+SOURCE FILE CHANGES:
+There are a couple files that require modifying and two database tables are required 
+to store gallery data.  The rest of this document identifies what files needs changed.
+
+GAL_CONF.php:  
+Project configuration file included on most script pages. Variables are specific to 
+your production environment. You may want to move this document out of your web sites
+root directory.  If so, pay close attention to any path variables, especially Line 56
+GAL_PARENT_DIR.  This constant is the file system path to your parent directory.
+On CentOS running a virtual web host, it looks something like:
+
+L56: define("GAL_PARENT_DIR","/var/www/vhosts/your_site/httpdocs/gallery");
+
+router.php:  
+Manages admin login process. Router needs a user table which is NOT INCLUDED 
+in the sql dump.  The user table should have a user name, password and ID who
+can manage the gallery through the programs User Interface. 
+
+Change Line 83 SELECT statement to reflect your users table name and column labels.
+ 
+The login process expects a cleartext passwords without encryption.  If using 
+encryption, change testmatch function (L39) so it can match the right string. 
+
+The admins user id and name are assigned to a session variable and checked on 
+all admin sub pages.
+
+gallery_tables.sql:  
+The MySQL dump file creates two empty tables galc_cat and gali_img. 
+You can use MySQL(mysql) controller to create a new database and tables 
+or select an existing database and run the following command.
+
+  user$ mysql -u dbaName -p -e "source gallery_tables.sql" DBname
+
+IMPORTANT: ALWAYS BACKUP YOUR DATABASE BEFORE MAKING ANY CHANGES.
+Do not change table or field names.  The program depends on normalization as 
+defined in gallery_tables.sql.
+
+error.php and logout.php:
+These files were not included in the project package.  I highly encouraged you to 
+create these files for public facing UI error reporting and logout process.    
+Better to fail gracefully (and securely) then expose important program machinery.  
+Scripts that expect error or logout processing are index.php, index_admin.php, 
+dashboard.php and router.php.
